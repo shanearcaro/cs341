@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
-#include <string.h>
+#include <string>
 
 
 /**
@@ -13,6 +13,22 @@
 void printOpening();
 
 int main(int argc, char* argv[]) {
+    std::string user_input;
+    std::cout << "Would you like to enter a string? Y or N: ";
+    getline(std::cin, user_input);
+
+    if (user_input == "Y" || user_input == "y") {
+        // Begin DFA here
+    }
+    else if (user_input == "N" || user_input == "n") {
+        std::cout << "No input string being read. Terminating.\n";
+        return 0;
+    }
+    else {
+        std::cout << "Cannot understand input string. Terminating.\n";
+        return 0;
+        }
+
     printOpening();
     return 0;
 }
