@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
-#include <algorithm>
+#include <fstream>
 #include <string>
 
 /**
@@ -11,6 +11,9 @@
 
 // Prints the opening messages required in project instructions
 void printOpening();
+
+// State machine that handles user input
+void dfa(std::string input);
 
 int main(int argc, char* argv[]) {
     // Print opening has to be first
@@ -22,7 +25,25 @@ int main(int argc, char* argv[]) {
     getline(std::cin, user_input);
 
     if (user_input == "Y" || user_input == "y") {
-        // Begin DFA here
+        // If user enters a string read the string but if user enters a file read all input from file
+        std::cout << "Enter string or file to be read: ";
+        std::string input;
+        getline(std::cin, input);
+
+        std::fstream file(input);
+        if (file.is_open()) {
+            // File was successfully read
+            while (!file.eof()) {
+                getline(file, input);
+                dfa(input);
+            }
+            file.close();
+        }
+        else {
+            // File could not be read, must be string input
+            dfa(input);
+        }
+        
     }
     else if (user_input == "N" || user_input == "n") {
         std::cout << "No input string being read. Terminating." << std::endl;
@@ -41,4 +62,8 @@ void printOpening() {
     std::cout << "Semester: Spring 2022" << std::endl;
     std::cout << "Written by: Shane Arcaro, sma237" << std::endl;
     std::cout << "Instructor: Marvin Nakayama, marvin@njit.edu" << std::endl;
+}
+
+void dfa(std::string input) {
+    std::cout << "From DFA: " << input << std::endl;
 }
