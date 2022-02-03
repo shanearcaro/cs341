@@ -33,6 +33,9 @@ void dfa(std::string input);
 // Just needed a function to concat everything into SIGMA
 void concat();
 
+// Determine which set characters belongs to, 0 for GAMMA, 1 for DELTA, 2 for PHI
+int determine(char character);
+
 int main(int argc, char* argv[]) {
     // Print opening has to be first
     printOpening();
@@ -84,6 +87,11 @@ void printOpening() {
 
 void dfa(std::string input) {
     std::cout << "From DFA: " << input << std::endl;
+    for (int i = 0; i < input.length(); i++) {
+        int set = determine(input[i]);
+        std::string s = set == 0 ? "GAMMA" : set == 1 ? "DELTA" : "PHI";
+        std::cout << input[i] << " belongs to: " << s << std::endl;
+    }
 }
 
 void concat() {
@@ -92,4 +100,16 @@ void concat() {
     }
     SIGMA[GAMMA_LENGTH] = DELTA[0];
     SIGMA[GAMMA_LENGTH + DELTA_LENGTH] = PHI[0];
+}
+
+int determine(char character) {
+    // Get ascii value of character
+    int ascii_value = (int) character;
+
+    // 46 = . 64 = @
+    if (ascii_value == 46)
+        return 1;
+    else if (ascii_value == 64)
+        return 2;
+    return 0;
 }
