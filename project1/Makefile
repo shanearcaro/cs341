@@ -9,5 +9,9 @@ run: $(PROJ).cpp
 	make all
 	./$(PROJ)
 
+debug: $(PROJ).cpp
+	$(CC) $(ARG) --DEBUG $(PROJ).cpp -o $(PROJ)
+	./$(PROJ)
+
 clean:
 	rm $(PROJ)

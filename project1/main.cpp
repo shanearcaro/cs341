@@ -2,44 +2,29 @@
 #include <fstream>
 #include <string>
 
+#include "sets.h"
+#include "util.h"
+#include "node.h"
+#include "transition.h"
+
 /**
  * @brief Project Instructions
  * https://web.njit.edu/~marvin/cs341/projects/prog1email.pdf
  */
 
-#define GAMMA_LENGTH 26
-#define DELTA_LENGTH 1
-#define PHI_LENGTH 1
-#define SIGMA_LENGTH GAMMA_LENGTH + DELTA_LENGTH + PHI_LENGTH
-
-// Set of lower-case Roman letters
-std::string GAMMA[GAMMA_LENGTH] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-
-// Set of a period
-std::string DELTA[DELTA_LENGTH] = {"."};
-
-// Set of an at symbol
-std::string PHI[PHI_LENGTH] = {"@"};
-
-// Set of all available letters
-std::string SIGMA[SIGMA_LENGTH];
-
-// Prints the opening messages required in project instructions
-void printOpening();
-
 // State machine that handles user input
 void dfa(std::string input);
 
-// Just needed a function to concat everything into SIGMA
-void concat();
-
-// Determine which set characters belongs to, 0 for GAMMA, 1 for DELTA, 2 for PHI
-int determine(char character);
-
 int main(int argc, char* argv[]) {
     // Print opening has to be first
-    printOpening();
-    concat();
+    util::printOpening();
+    util::concat();
+
+    // TEST
+    Node q1(false);
+    q1.addTransition(std::vector<std::string> {"SIGMA"}, 0);
+
+    // END TEST
 
     // Ask user if they want to enter a string and continue on with the program; otherwise terminate
     std::string user_input;
@@ -77,39 +62,14 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-void printOpening() {
-    std::cout << "Project 1 for CS 341" << std::endl;
-    std::cout << "Section Number: 452" << std::endl;
-    std::cout << "Semester: Spring 2022" << std::endl;
-    std::cout << "Written by: Shane Arcaro, sma237" << std::endl;
-    std::cout << "Instructor: Marvin Nakayama, marvin@njit.edu" << std::endl;
-}
-
 void dfa(std::string input) {
     std::cout << "From DFA: " << input << std::endl;
     for (int i = 0; i < input.length(); i++) {
-        int set = determine(input[i]);
+        int set = util::determine(input[i]);
         std::string s = set == 0 ? "GAMMA" : set == 1 ? "DELTA" : "PHI";
         std::cout << input[i] << " belongs to: " << s << std::endl;
     }
+    // Could make this very similar to a tokenizer
 }
 
-void concat() {
-    for (int i = 0; i < GAMMA_LENGTH; i++) {
-        SIGMA[i] = GAMMA[i];
-    }
-    SIGMA[GAMMA_LENGTH] = DELTA[0];
-    SIGMA[GAMMA_LENGTH + DELTA_LENGTH] = PHI[0];
-}
 
-int determine(char character) {
-    // Get ascii value of character
-    int ascii_value = (int) character;
-
-    // 46 = . 64 = @
-    if (ascii_value == 46)
-        return 1;
-    else if (ascii_value == 64)
-        return 2;
-    return 0;
-}
