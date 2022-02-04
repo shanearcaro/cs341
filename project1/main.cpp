@@ -5,6 +5,7 @@
 #include "sets.h"
 #include "util.h"
 #include "node.h"
+#include "dfa.h"
 #include "transition.h"
 
 /**
@@ -15,10 +16,15 @@
 // State machine that handles user input
 void dfa(std::string input);
 
+std::vector<Node> nodes;
+std::vector<Transition> transitions;
+
 int main(int argc, char* argv[]) {
     // Print opening has to be first
     util::printOpening();
     util::concat();
+
+    spawnNodes();
 
     // TEST
     Node q1(false);
@@ -70,6 +76,10 @@ void dfa(std::string input) {
         std::cout << input[i] << " belongs to: " << s << std::endl;
     }
     // Could make this very similar to a tokenizer
+}
+
+void setTransitions() {
+
 }
 
 

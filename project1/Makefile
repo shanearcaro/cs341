@@ -3,14 +3,10 @@ ARG = -std=c++17
 PROJ = main
 
 all: $(PROJ).cpp
-	$(CC) $(ARG) $(PROJ).cpp -o $(PROJ)
+	$(CC) $(ARG) $(PROJ).cpp dfa.cpp -o $(PROJ)
 
 run: $(PROJ).cpp
 	make all
-	./$(PROJ)
-
-debug: $(PROJ).cpp
-	$(CC) $(ARG) --DEBUG $(PROJ).cpp -o $(PROJ)
 	./$(PROJ)
 
 clean:

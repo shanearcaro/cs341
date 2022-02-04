@@ -7,48 +7,29 @@
 #include "sets.h"
 #include "transition.h"
 
-int generation = 0;
-
 class Node {
-    // List of possible transitions from node
-    std::vector<Transition> transitions;
+    private:
+        // List of possible transitions from node
+        std::vector<Transition> transitions;
 
-    // True if accept state, otherwise false
-    bool state;
+        // True if accept state, otherwise false
+        bool state;
 
-    // Unique id number
-    int id;
+        // Unique id number
+        int id;
 
     public: 
-        Node() {
-            this->state = false;
-            this->id = ++generation;
-        }
+        // Unique identifer for Nodes
+        static int generation = 0;
 
-        Node(bool state) {
-            this->state = state;
-            this->id = ++generation;
-        }
+        Node(): state(false), id(++generation) {};
+        Node(bool acceptState): state(acceptState), id(++generation) {};
 
-        void addTransition(std::vector<std::string> accept, int id) {
-            Transition t(accept, id);
-            this->transitions.push_back(t);
-        }
-
-        void next(char input) {
-            for (int i = 0; i < transitions.size(); i++) {
-                std::cout << "Sending [" << input << "]: " << transitions.at(i).getTransitionNode() << std::endl;
-                transitions.at(i).transition(input);
-            }
-        }
-
-        bool getState() {
-            return state;
-        }
-
-        int getID() {
-            return id;
-        }
+        
+        inline void addTransition(std::vector<std::string> accept, int id);
+        inline void next(char input);
+        inline bool getState();
+        inline int getID();
 };
 
 #endif
