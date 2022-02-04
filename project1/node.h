@@ -9,6 +9,9 @@
 
 class Node {
     private:
+        // Unique identifer for Nodes
+        static int generation;
+        
         // List of possible transitions from node
         std::vector<Transition> transitions;
 
@@ -19,9 +22,6 @@ class Node {
         int id;
 
     public: 
-        // Unique identifer for Nodes
-        static int generation = 0;
-
         Node(): state(false), id(++generation) {};
         Node(bool acceptState): state(acceptState), id(++generation) {};
 

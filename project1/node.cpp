@@ -2,6 +2,8 @@
 
 #include "node.h"
 
+int Node::generation = 0;
+
 void Node::addTransition(std::vector<std::string> accept, int id) {
     Transition t(accept, id);
     this->transitions.push_back(t);
