@@ -139,8 +139,11 @@ void createL2() {
     q5.addTransition("G-o", q4.getID());
     q6.addTransition("r", q7.getID());
     q6.addTransition("G-r", q4.getID());
+    q6.addTransition(".", q4.getID());
     q7.addTransition("g", q8.getID());
     q7.addTransition("G-g", q4.getID());
+    q7.addTransition(".", q5.getID());
+    q8.addTransition(".", q5.getID());
 
     std::vector<Node> nodes = {q1, q2, q3, q4, q5, q6, q7, q8, trash_node};
     for (int i = 0; i < nodes.size(); i++) {
