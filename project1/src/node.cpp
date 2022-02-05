@@ -18,7 +18,7 @@ void Node::addTransition(std::vector<std::string> accept, Node node) {
 }
 
 // Transition to the next node given input
-void Node::next(char input) {
+void Node::next(std::string input) {
     for (int i = 0; i < transitions.size(); i++) {
         std::cout << "Sending [" << input << "]: " << transitions.at(i).getTransitionNode() << std::endl;
         transitions.at(i).transition(input);

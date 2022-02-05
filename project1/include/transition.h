@@ -15,7 +15,7 @@ class Transition {
     public:
         Transition(std::vector<std::string> accepting, int nodeID): accept(accepting), transitionNode(nodeID) {};
 
-        void transition(char input);
+        void transition(std::string input);
         std::vector<std::string> getAccept();
         int getTransitionNode();
         void setTransitionNode(int nodeID);

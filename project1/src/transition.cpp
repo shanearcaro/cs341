@@ -1,7 +1,7 @@
 #include "../include/transition.h"
 
 // Transition to the next state given input
-void Transition::transition(char input) {
+void Transition::transition(std::string input) {
 
 }
 

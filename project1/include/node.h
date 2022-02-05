@@ -27,7 +27,7 @@ class Node {
         
         void addTransition(std::vector<std::string> accept, int id);
         void addTransition(std::vector<std::string> accept, Node node);
-        void next(char input);
+        void next(std::string input);
         bool getState();
         int getID();
 };
