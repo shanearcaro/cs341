@@ -6,7 +6,7 @@
 
 #include "../include/sets.h"
 
-    extern void printOpening();
-    extern int determine(char character);
+extern void printOpening();
+extern int determine(char character);
 
 #endif
