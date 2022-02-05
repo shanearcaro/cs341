@@ -18,6 +18,7 @@
     // Set of all available letters
     std::string SIGMA[SIGMA_LENGTH];
 
+    // Concat all sets into one super set SIGMA
     void concat() {
         for (int i = 0; i < GAMMA_LENGTH; i++) {
             SIGMA[i] = GAMMA[i];

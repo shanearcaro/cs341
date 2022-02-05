@@ -1,5 +1,6 @@
 #include "../include/util.h"
 
+// Print the opening
 void printOpening() {
     std::cout << "Project 1 for CS 341" << std::endl;
     std::cout << "Section Number: 452" << std::endl;
@@ -8,6 +9,7 @@ void printOpening() {
     std::cout << "Instructor: Marvin Nakayama, marvin@njit.edu" << std::endl;
 }
 
+// Determine to which set a character belongs to
 int determine(char character) {
     // Get ascii value of character
     int ascii_value = (int) character;
