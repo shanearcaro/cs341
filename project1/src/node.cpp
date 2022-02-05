@@ -2,9 +2,6 @@
 
 #include "../include/node.h"
 
-// Generation number for keeping nodes unique 
-int Node::generation = 0;
-
 void Node::addTransition(std::string accept, int id) {
     Transition t(accept, this->getID(), id);
     this->transitions.push_back(t);
@@ -49,4 +46,8 @@ bool Node::getState() {
 // Get the ID of the node
 int Node::getID() {
     return id;
+}
+
+void Node::setID(int id) {
+    this->id = id;
 }

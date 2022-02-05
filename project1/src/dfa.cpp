@@ -2,7 +2,6 @@
 
 #include "../include/dfa.h"
 
-
 void DFA::setNodes(std::vector<Node> qNodes) {
     nodes = qNodes;
     this->head = &nodes.at(0);
@@ -17,7 +16,8 @@ bool DFA::next(std::string input) {
     for (int i = 0; i < input.size(); i++) {
         currentCharacter = input[i];
         std::cout << "State q" << head->getID() << ": " << currentCharacter << std::endl;
-        head = getNode(head->next(std::string(1, currentCharacter)));
+        int ticket = head->next(std::string(1, currentCharacter));
+        head = getNode(ticket);
     }
     // Once this ends the string has been read and head is in the end
     std::cout << "State q" << head->getID() << std::endl;
@@ -30,4 +30,8 @@ Node* DFA::getNode(int id) {
             return &nodes.at(i);
     }
     return nullptr;
+}
+
+int DFA::getTicket() {
+   return ++ticket; 
 }

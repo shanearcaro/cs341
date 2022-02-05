@@ -5,6 +5,9 @@
 
 class DFA {
     private:
+
+        int ticket = 0;
+
         std::vector<Node> nodes;
 
         // This should be a pointer to a memory location
@@ -16,7 +19,7 @@ class DFA {
         std::vector<Node> getNodes();
         bool next(std::string input);
         Node* getNode(int id);
-
+        int getTicket();
 };
 
 #endif

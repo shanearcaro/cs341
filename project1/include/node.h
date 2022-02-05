@@ -8,21 +8,18 @@
 
 class Node {
     private:
-        // Unique identifer for Nodes
-        static int generation;
-        
         // List of possible transitions from node
         std::vector<Transition> transitions;
-
-        // True if accept state, otherwise false
-        bool state;
 
         // Unique id number
         int id;
 
+        // True if accept state, otherwise false
+        bool state;
+
     public: 
-        Node(): state(false), id(++generation) {};
-        Node(bool acceptState): state(acceptState), id(++generation) {};
+        Node(int id): id(id), state(false) {};
+        Node(int id, bool acceptState): id(id), state(acceptState) {};
         
         // void addTransition(std::string accept, int id);
         void addTransition(std::string accept, int id);
@@ -30,6 +27,7 @@ class Node {
         std::vector<Transition> getTransitions();
         bool getState();
         int getID();
+        void setID(int id);
 };
 
 #endif
