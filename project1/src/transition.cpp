@@ -5,11 +5,11 @@ std::string Transition::getAccept() {
     return accept;
 }
 
-Node* Transition::getFrom() {
+int Transition::getFrom() {
     return from;
 }
 
-Node* Transition::getTo() {
+int Transition::getTo() {
     return to;
 }
 

@@ -5,26 +5,40 @@
 // Generation number for keeping nodes unique 
 int Node::generation = 0;
 
-// // Add a new transition state to a node
-// void Node::addTransition(std::string accept, int id) {
-//     Transition t(accept, id);
-//     this->transitions.push_back(t);
-// }
-
-// Add a new transition state to a node
-void Node::addTransition(std::string accept, Node* node) {
-    Transition t(accept, this, node);
-
-    std::cout << this << " and " << node << std::endl;
-    std::cout << this->getID() << " and " << node->getID() << std::endl;
-
+void Node::addTransition(std::string accept, int id) {
+    Transition t(accept, this->getID(), id);
     this->transitions.push_back(t);
 }
 
 // Transition to the next node given input
+int Node::next(std::string input) {
+    for (int i = 0; i < transitions.size(); i++) {
+        Transition* p_temp = &transitions.at(i);
+        // If input is a direct match
+        if (input.compare(p_temp->getAccept()) == 0) {
+            return p_temp->getTo();
+        }
+        // G is designated for roman lowercase letters
+        else if (p_temp->getAccept().compare("G") == 0) {
+            // If input is a letter
+            if (isalpha(input[0])) {
+                return p_temp->getTo();
+            }
+        }
+        else if (p_temp->getAccept().compare("G-") == 0) {
+            std::string letter = p_temp->getAccept().substr(2);
+            if (isalpha(input[0]) && input.compare(letter) != 0) {
+                return p_temp->getTo();
+            }
+        }
+    }
 
-Node* Node::next(std::string input) {
-    return this;
+    Transition* p_trash = &transitions.back();
+    return p_trash->getTo();
+}
+
+std::vector<Transition> Node::getTransitions() {
+    return this->transitions;
 }
 
 // Return the state of the node

@@ -4,23 +4,21 @@
 #include <vector>
 #include <string>
 
-class Node;
-
 class Transition {
     private:
         // List of strings that will allow for the next transition
         std::string accept;
 
-        Node* from;
-        Node* to;
+        int from;
+        int to;
 
     public:
-        Transition(std::string accepting, Node* fromNode, Node* toNode): accept(accepting), from(fromNode), to(toNode) {};
+        Transition(std::string accepting, int from, int to): accept(accepting), from(from), to(to) {};
 
         std::string getAccept();
 
-        Node* getFrom();
-        Node* getTo();
+        int getFrom();
+        int getTo();
 };  
 
 #endif

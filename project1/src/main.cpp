@@ -40,6 +40,7 @@ int main(int argc, char* argv[]) {
         std::cout << "Enter string or file to be read: ";
         std::string input;
         getline(std::cin, input);
+        std::cout << std::endl;
 
         std::fstream file(input);
         if (file.is_open()) {
@@ -67,44 +68,59 @@ int main(int argc, char* argv[]) {
 }
 
 void start(std::string input) {
-    std::cout << "========== STARTING DFA ==========" << std::endl;
-    L1.next(input);
-    std::cout << "==========  ENDING DFA  ==========" << std::endl;
-    // Could make this very similar to a tokenizer
+    std::cout << "Testing L1" << std::endl;
+    bool test1 = L1.next(input);
+    std::cout << std::endl;
+
+    std::cout << "Testing L2" << std::endl;
+    bool test2 = L2.next(input);
+
+    std::cout << input << ((test1 && test2) ? ": accepted" : ": rejected") << std::endl;
 }
 
 void createL1() {
-    Node q1, q2, q3, q4, q5, q6, q7, q8(true);
+    Node q1, q2, q3, q4, q5, q6, q7, q8(true), trash_node;
     
-    q1.addTransition("G", &q2);
-    q2.addTransition("G", &q2);
-    q2.addTransition("@", &q3);
-    q3.addTransition("G", &q4);
-    q4.addTransition("G", &q4);
-    q4.addTransition(".", &q5);
-    q5.addTransition("o", &q6);
-    q6.addTransition("r", &q7);
-    q7.addTransition("g", &q8);
-    
-    L1.setNodes(std::vector<Node> {q1, q2, q3, q4, q5, q6, q7, q8});
+    q1.addTransition("G", q2.getID());
+    q2.addTransition("G", q2.getID());
+    q2.addTransition("@", q3.getID());
+    q3.addTransition("G", q4.getID());
+    q4.addTransition("G", q4.getID());
+    q4.addTransition(".", q5.getID());
+    q5.addTransition("o", q6.getID());
+    q6.addTransition("r", q7.getID());
+    q7.addTransition("g", q8.getID());
+
+    std::vector<Node> nodes = {q1, q2, q3, q4, q5, q6, q7, q8, trash_node};
+    for (int i = 0; i < nodes.size(); i++) {
+        nodes.at(i).addTransition("X", trash_node.getID());
+    }
+
+    L1.setNodes(nodes);
+
 }
 
 void createL2() {
-    // Node q1, q2, q3, q4, q5, q6, q7, q8(true);
+    Node q1, q2, q3, q4, q5, q6, q7, q8(true), trash_node;
 
-    // q1.addTransition("G", q2);
-    // q2.addTransition("G", q2);
-    // q2.addTransition(".", q1);
-    // q2.addTransition("@", q3);
-    // q3.addTransition("G", q4);
-    // q4.addTransition("G", q4);
-    // q4.addTransition(".", q5);
-    // q5.addTransition("o", q6);
-    // q6.addTransition("r", q7);
-    // q6.addTransition("G-r", q4);
-    // q7.addTransition("g", q8);
-    // q7.addTransition("G-g", q4);
+    q1.addTransition("G", q2.getID());
+    q2.addTransition("G", q2.getID());
+    q2.addTransition(".", q1.getID());
+    q2.addTransition("@", q3.getID());
+    q3.addTransition("G", q4.getID());
+    q4.addTransition("G", q4.getID());
+    q4.addTransition(".", q5.getID());
+    q5.addTransition("o", q6.getID());
+    q6.addTransition("r", q7.getID());
+    q6.addTransition("G-r", q4.getID());
+    q7.addTransition("g", q8.getID());
+    q7.addTransition("G-g", q4.getID());
 
-    // L2.setNodes(std::vector<Node> {q1, q2, q3, q4, q5, q6, q7, q8});
+    std::vector<Node> nodes = {q1, q2, q3, q4, q5, q6, q7, q8, trash_node};
+    for (int i = 0; i < nodes.size(); i++) {
+        nodes.at(i).addTransition("X", trash_node.getID());
+    }
+
+    L2.setNodes(std::vector<Node> {q1, q2, q3, q4, q5, q6, q7, q8});
 }
 
