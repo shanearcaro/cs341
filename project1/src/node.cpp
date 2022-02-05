@@ -11,6 +11,12 @@ void Node::addTransition(std::vector<std::string> accept, int id) {
     this->transitions.push_back(t);
 }
 
+// Add a new transition state to a node
+void Node::addTransition(std::vector<std::string> accept, Node node) {
+    Transition t(accept, node.getID());
+    this->transitions.push_back(t);
+}
+
 // Transition to the next node given input
 void Node::next(char input) {
     for (int i = 0; i < transitions.size(); i++) {
