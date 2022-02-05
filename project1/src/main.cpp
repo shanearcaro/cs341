@@ -13,7 +13,7 @@
  */
 
 // State machine that handles user input
-void start(std::string input);
+std::string start(std::string input, bool write);
 
 void createL1();
 void createL2();
@@ -38,46 +38,50 @@ int main(int argc, char* argv[]) {
     // Instructions say to loop back to start again
     while (user_input != "N" || user_input != "n") {
         if (user_input == "Y" || user_input == "y") {
-        // If user enters a string read the string but if user enters a file read all input from file
-        std::cout << "Enter string or file to be read: ";
-        std::string input;
-        getline(std::cin, input);
-        std::cout << std::endl;
+            // If user enters a string read the string but if user enters a file read all input from file
+            std::cout << "Enter string or file to be read: ";
+            std::string input;
+            getline(std::cin, input);
+            std::cout << std::endl;
 
-        std::fstream file(input);
-        if (file.is_open()) {
-            // File was successfully read
-            while (!file.eof()) {
-                getline(file, input);
-                // Send input to get tested by the DFAs
-                start(input);
+            std::fstream file(input);
+            if (file.is_open()) {
+                // File was successfully read
 
-                // Reset the DFAs to start state
-                L1.reset();
-                L2.reset();
+                std::ofstream output_file;
+                output_file.open(input.substr(0, input.size() - 4) + "_answers.txt");
+                while (!file.eof()) {
+                    getline(file, input);
+                    // Send input to get tested by the DFAs
+                    output_file << start(input, true) + "\n";
+
+                    // Reset the DFAs to start state
+                    L1.reset();
+                    L2.reset();
+                }
+                output_file.close();
+                file.close();
             }
-            file.close();
+            else {
+                // File could not be read, must be string input
+                start(input, false);
+            }
+        }
+        else if (user_input == "N" || user_input == "n") {
+            std::cout << "No input string being read. Terminating." << std::endl;
+            return 0;
         }
         else {
-            // File could not be read, must be string input
-            start(input);
+            std::cout << "Cannot understand input string. Terminating." << std::endl;
+            return 0;
         }
-    }
-    else if (user_input == "N" || user_input == "n") {
-        std::cout << "No input string being read. Terminating." << std::endl;
-        return 0;
-    }
-    else {
-        std::cout << "Cannot understand input string. Terminating." << std::endl;
-        return 0;
-    }
     }
     return 0;
 }
 
 // Start both L1 and L2 DFA tests
 // A string only needs to pass one of the tests to be accepted
-void start(std::string input) {
+std::string start(std::string input, bool write) {
     std::cout << "Testing L1" << std::endl;
     bool test1 = L1.next(input);
     std::cout << std::endl;
@@ -86,6 +90,11 @@ void start(std::string input) {
     bool test2 = L2.next(input);
 
     std::cout << input << ((test1 || test2) ? ": accepted" : ": rejected") << std::endl;
+
+    if (write)
+        return input + ((test1 || test2) ? ": accepted" : ": rejected");
+    return "";
+    
 }
 
 // I just don't like this code at all
