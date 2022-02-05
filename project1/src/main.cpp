@@ -75,11 +75,13 @@ void start(std::string input) {
     std::cout << "Testing L2" << std::endl;
     bool test2 = L2.next(input);
 
-    std::cout << input << ((test1 && test2) ? ": accepted" : ": rejected") << std::endl;
+    std::cout << input << ((test1 || test2) ? ": accepted" : ": rejected") << std::endl;
 }
 
 void createL1() {
-    Node q1, q2, q3, q4, q5, q6, q7, q8(true), trash_node;
+    Node q1(L1.getTicket()), q2(L1.getTicket()), q3(L1.getTicket());
+    Node q4(L1.getTicket()), q5(L1.getTicket()), q6(L1.getTicket());
+    Node q7(L1.getTicket()), q8(L1.getTicket(), true), trash_node(L1.getTicket());
     
     q1.addTransition("G", q2.getID());
     q2.addTransition("G", q2.getID());
@@ -101,7 +103,9 @@ void createL1() {
 }
 
 void createL2() {
-    Node q1, q2, q3, q4, q5, q6, q7, q8(true), trash_node;
+    Node q1(L2.getTicket()), q2(L2.getTicket()), q3(L2.getTicket());
+    Node q4(L2.getTicket()), q5(L2.getTicket()), q6(L2.getTicket());
+    Node q7(L2.getTicket()), q8(L2.getTicket(), true), trash_node(L2.getTicket());
 
     q1.addTransition("G", q2.getID());
     q2.addTransition("G", q2.getID());
