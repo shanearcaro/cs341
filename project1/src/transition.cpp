@@ -6,7 +6,7 @@ void Transition::transition(std::string input) {
 }
 
 // Return if the node is an accepting state
-std::vector<std::string> Transition::getAccept() {
+std::string Transition::getAccept() {
     return accept;
 }
 

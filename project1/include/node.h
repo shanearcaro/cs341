@@ -25,8 +25,8 @@ class Node {
         Node(): state(false), id(++generation) {};
         Node(bool acceptState): state(acceptState), id(++generation) {};
         
-        void addTransition(std::vector<std::string> accept, int id);
-        void addTransition(std::vector<std::string> accept, Node node);
+        void addTransition(std::string accept, int id);
+        void addTransition(std::string accept, Node node);
         void next(std::string input);
         bool getState();
         int getID();
