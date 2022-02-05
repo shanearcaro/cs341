@@ -16,6 +16,7 @@ class DFA {
     public:
         DFA() {};
         void setNodes(std::vector<Node> qNodes);
+        void reset();
         std::vector<Node> getNodes();
         bool next(std::string input);
         Node* getNode(int id);

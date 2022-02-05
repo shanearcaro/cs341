@@ -7,6 +7,10 @@ void DFA::setNodes(std::vector<Node> qNodes) {
     this->head = &nodes.at(0);
 }
 
+void DFA::reset() {
+    this->head = &nodes.at(0);
+}
+
 std::vector<Node> DFA::getNodes() {
     return nodes;
 }
