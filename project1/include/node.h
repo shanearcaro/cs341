@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 
-#include "sets.h"
-#include "transition.h"
+#include "../include/sets.h"
+#include "../include/transition.h"
 
 class Node {
     private:
@@ -24,12 +24,11 @@ class Node {
     public: 
         Node(): state(false), id(++generation) {};
         Node(bool acceptState): state(acceptState), id(++generation) {};
-
         
-        inline void addTransition(std::vector<std::string> accept, int id);
-        inline void next(char input);
-        inline bool getState();
-        inline int getID();
+        void addTransition(std::vector<std::string> accept, int id);
+        void next(char input);
+        bool getState();
+        int getID();
 };
 
 #endif

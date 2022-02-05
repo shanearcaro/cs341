@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "node.h"
+#include "../include/node.h"
 
 int Node::generation = 0;
 

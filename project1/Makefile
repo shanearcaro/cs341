@@ -1,13 +1,32 @@
-CC = g++
-ARG = -std=c++17
-PROJ = main
+SRC_DIR := ./src
+HEAD_DIR := include
 
-all: $(PROJ).cpp
-	$(CC) $(ARG) $(PROJ).cpp dfa.cpp -o $(PROJ)
+EXE:= main
+CPPFLAGS = g++ -Iinclude -std=c++17
 
-run: $(PROJ).cpp
-	make all
-	./$(PROJ)
+SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
+
+all: $(SRC_DIR)/$(EXE).cpp
+	$(CPPFLAGS) $(SRC_FILES) -o $(EXE)
+
+run: $(SRC_DIR)/$(EXE).cpp
+	make
+	./$(EXE)
 
 clean:
 	rm $(PROJ)
+
+# CC = g++ -Iinclude -Isrc
+# ARG = -std=c++17
+# LINK = main.cpp node.cpp
+# PROJ = main
+
+# all: $(PROJ).cpp
+# 	$(CC) $(ARG) $(LINK) -o $(PROJ)
+
+# run: $(PROJ).cpp
+# 	make all
+# 	./$(PROJ)
+
+# clean:
+# 	rm $(PROJ)

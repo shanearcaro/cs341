@@ -1,9 +1,5 @@
-#ifndef SETS_H
-#define SETS_H
+#include <string>  
 
-#include <string>
-
-namespace set {
     // Length of each array
     const int GAMMA_LENGTH = 26;
     const int DELTA_LENGTH = 1;
@@ -21,5 +17,11 @@ namespace set {
 
     // Set of all available letters
     std::string SIGMA[SIGMA_LENGTH];
-}
-#endif
+
+    void concat() {
+        for (int i = 0; i < GAMMA_LENGTH; i++) {
+            SIGMA[i] = GAMMA[i];
+        }
+        SIGMA[GAMMA_LENGTH] = DELTA[0];
+        SIGMA[GAMMA_LENGTH + DELTA_LENGTH] = PHI[0];
+    }

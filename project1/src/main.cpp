@@ -1,12 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
-#include "sets.h"
-#include "util.h"
-#include "node.h"
-#include "dfa.h"
-#include "transition.h"
+#include "../include/util.h"
+#include "../include/node.h"
+#include "../include/dfa.h"
 
 /**
  * @brief Project Instructions
@@ -21,10 +20,8 @@ std::vector<Transition> transitions;
 
 int main(int argc, char* argv[]) {
     // Print opening has to be first
-    util::printOpening();
-    util::concat();
-
-    spawnNodes();
+    printOpening();
+    concat();
 
     // TEST
     Node q1(false);
@@ -71,7 +68,7 @@ int main(int argc, char* argv[]) {
 void dfa(std::string input) {
     std::cout << "From DFA: " << input << std::endl;
     for (int i = 0; i < input.length(); i++) {
-        int set = util::determine(input[i]);
+        int set = determine(input[i]);
         std::string s = set == 0 ? "GAMMA" : set == 1 ? "DELTA" : "PHI";
         std::cout << input[i] << " belongs to: " << s << std::endl;
     }
