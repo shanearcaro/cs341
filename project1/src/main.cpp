@@ -67,34 +67,24 @@ int main(int argc, char* argv[]) {
 }
 
 void start(std::string input) {
-    for (int i = 0; i < L1.getNodes().size(); i++) {
-        std::cout << "Node: " << L1.getNodes().at(i).getID() << std::endl;
-    }
-
-
-    // std::cout << "========== STARTING DFA ==========" << std::endl;
-    // char currentCharacter;
-    // for (int i = 0; i < input.length(); i++) {
-    //     currentCharacter = input[i];
-    //     std::cout << "Current Character: " << currentCharacter << std::endl;
-    //     L1.next(std::string(1, currentCharacter));
-    // }
-    // std::cout << "==========  ENDING DFA  ==========" << std::endl;
+    std::cout << "========== STARTING DFA ==========" << std::endl;
+    L1.next(input);
+    std::cout << "==========  ENDING DFA  ==========" << std::endl;
     // Could make this very similar to a tokenizer
 }
 
 void createL1() {
     Node q1, q2, q3, q4, q5, q6, q7, q8(true);
     
-    q1.addTransition("S", q2);
-    q2.addTransition("S", q2);
-    q2.addTransition("@", q3);
-    q3.addTransition("S", q4);
-    q4.addTransition("S", q4);
-    q4.addTransition(".", q5);
-    q5.addTransition("o", q6);
-    q6.addTransition("r", q7);
-    q7.addTransition("g", q8);
+    q1.addTransition("S", &q2);
+    q2.addTransition("S", &q2);
+    q2.addTransition("@", &q3);
+    q3.addTransition("S", &q4);
+    q4.addTransition("S", &q4);
+    q4.addTransition(".", &q5);
+    q5.addTransition("o", &q6);
+    q6.addTransition("r", &q7);
+    q7.addTransition("g", &q8);
     
     L1.setNodes(std::vector<Node> {q1, q2, q3, q4, q5, q6, q7, q8});
 }
