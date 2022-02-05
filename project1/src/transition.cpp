@@ -11,11 +11,11 @@ std::string Transition::getAccept() {
 }
 
 // Return the id of the node to be transitioned to
-int Transition::getTransitionNode() {
+Node* Transition::getTransitionNode() {
     return transitionNode;
 }
 
 // Set the transition node id to nodeID
-void Transition::setTransitionNode(int nodeID) {
-    transitionNode = nodeID;
+void Transition::setTransitionNode(Node* node) {
+    transitionNode = node;
 }

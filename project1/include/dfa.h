@@ -6,7 +6,6 @@
 class DFA {
     private:
         std::vector<Node> nodes;
-        Node activeNode;
 
     public:
         DFA() {};

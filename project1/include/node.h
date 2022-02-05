@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 
-#include "../include/sets.h"
 #include "../include/transition.h"
 
 class Node {
@@ -25,9 +24,9 @@ class Node {
         Node(): state(false), id(++generation) {};
         Node(bool acceptState): state(acceptState), id(++generation) {};
         
-        void addTransition(std::string accept, int id);
+        // void addTransition(std::string accept, int id);
         void addTransition(std::string accept, Node node);
-        void next(std::string input);
+        bool next(std::string input, Node& activeNode);
         bool getState();
         int getID();
 };

@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "../include/dfa.h"
 
 void DFA::setNodes(std::vector<Node> qNodes) {
@@ -11,10 +13,10 @@ std::vector<Node> DFA::getNodes() {
     return nodes;
 }
 
-void DFA::setActiveNode(Node qNode) {
-    activeNode = qNode;
-}
 
 bool DFA::next(std::string input) {
-    activeNode.next(input);
+    // std::cout << "Node Input[" << activeNode.getID() << "]: " << input << std::endl;
+    // while (activeNode.next(input, activeNode)) {
+    // }
+    return false;
 }

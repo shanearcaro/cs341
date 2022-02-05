@@ -30,8 +30,6 @@ int main(int argc, char* argv[]) {
     createL1();
     createL2();
 
-    L1.next("a");
-
     // Ask user if they want to enter a string and continue on with the program; otherwise terminate
     std::string user_input;
     std::cout << "Would you like to enter a string? Y or N: ";
@@ -69,12 +67,19 @@ int main(int argc, char* argv[]) {
 }
 
 void start(std::string input) {
-    std::cout << "From DFA: " << input << std::endl;
-    for (int i = 0; i < input.length(); i++) {
-        int set = determine(input[i]);
-        std::string s = set == 0 ? "GAMMA" : set == 1 ? "DELTA" : "PHI";
-        std::cout << input[i] << " belongs to: " << s << std::endl;
+    for (int i = 0; i < L1.getNodes().size(); i++) {
+        std::cout << "Node: " << L1.getNodes().at(i).getID() << std::endl;
     }
+
+
+    // std::cout << "========== STARTING DFA ==========" << std::endl;
+    // char currentCharacter;
+    // for (int i = 0; i < input.length(); i++) {
+    //     currentCharacter = input[i];
+    //     std::cout << "Current Character: " << currentCharacter << std::endl;
+    //     L1.next(std::string(1, currentCharacter));
+    // }
+    // std::cout << "==========  ENDING DFA  ==========" << std::endl;
     // Could make this very similar to a tokenizer
 }
 
@@ -95,21 +100,21 @@ void createL1() {
 }
 
 void createL2() {
-    Node q1, q2, q3, q4, q5, q6, q7, q8(true);
+    // Node q1, q2, q3, q4, q5, q6, q7, q8(true);
 
-    q1.addTransition("S", q2);
-    q2.addTransition("S", q2);
-    q2.addTransition(".", q1);
-    q2.addTransition("@", q3);
-    q3.addTransition("S", q4);
-    q4.addTransition("S", q4);
-    q4.addTransition(".", q5);
-    q5.addTransition("o", q6);
-    q6.addTransition("r", q7);
-    q6.addTransition("S-r", q4);
-    q7.addTransition("g", q8);
-    q7.addTransition("S-g", q4);
+    // q1.addTransition("S", q2);
+    // q2.addTransition("S", q2);
+    // q2.addTransition(".", q1);
+    // q2.addTransition("@", q3);
+    // q3.addTransition("S", q4);
+    // q4.addTransition("S", q4);
+    // q4.addTransition(".", q5);
+    // q5.addTransition("o", q6);
+    // q6.addTransition("r", q7);
+    // q6.addTransition("S-r", q4);
+    // q7.addTransition("g", q8);
+    // q7.addTransition("S-g", q4);
 
-    L2.setNodes(std::vector<Node> {q1, q2, q3, q4, q5, q6, q7, q8});
+    // L2.setNodes(std::vector<Node> {q1, q2, q3, q4, q5, q6, q7, q8});
 }
 
