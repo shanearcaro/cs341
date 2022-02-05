@@ -22,10 +22,11 @@ class Node {
         int id;
 
     public: 
-        Node(): state(false), id(generation++) {};
-        Node(bool acceptState): state(acceptState), id(generation++) {};
+        Node(): state(false), id(++generation) {};
+        Node(bool acceptState): state(acceptState), id(++generation) {};
         
         void addTransition(std::vector<std::string> accept, int id);
+        void addTransition(std::vector<std::string> accept, Node node);
         void next(char input);
         bool getState();
         int getID();
