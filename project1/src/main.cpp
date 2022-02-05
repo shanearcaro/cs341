@@ -4,8 +4,8 @@
 #include <vector>
 
 #include "../include/util.h"
-#include "../include/node.h"
 #include "../include/dfa.h"
+
 
 /**
  * @brief Project Instructions
@@ -13,21 +13,24 @@
  */
 
 // State machine that handles user input
-void dfa(std::string input);
+void start(std::string input);
 
-std::vector<Node> nodes;
-std::vector<Transition> transitions;
+void createL1();
+void createL2();
+
+DFA L1;
+DFA L2;
 
 int main(int argc, char* argv[]) {
     // Print opening has to be first
     printOpening();
     concat();
 
-    // TEST
-    Node q1(false);
-    q1.addTransition(std::vector<std::string> {"SIGMA"}, 0);
+    // Set up both DFAs
+    createL1();
+    createL2();
 
-    // END TEST
+    L1.next("a");
 
     // Ask user if they want to enter a string and continue on with the program; otherwise terminate
     std::string user_input;
@@ -45,13 +48,13 @@ int main(int argc, char* argv[]) {
             // File was successfully read
             while (!file.eof()) {
                 getline(file, input);
-                dfa(input);
+                start(input);
             }
             file.close();
         }
         else {
             // File could not be read, must be string input
-            dfa(input);
+            start(input);
         }
     }
     else if (user_input == "N" || user_input == "n") {
@@ -65,7 +68,7 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-void dfa(std::string input) {
+void start(std::string input) {
     std::cout << "From DFA: " << input << std::endl;
     for (int i = 0; i < input.length(); i++) {
         int set = determine(input[i]);
@@ -75,8 +78,38 @@ void dfa(std::string input) {
     // Could make this very similar to a tokenizer
 }
 
-void setTransitions() {
-
+void createL1() {
+    Node q1, q2, q3, q4, q5, q6, q7, q8(true);
+    
+    q1.addTransition("S", q2);
+    q2.addTransition("S", q2);
+    q2.addTransition("@", q3);
+    q3.addTransition("S", q4);
+    q4.addTransition("S", q4);
+    q4.addTransition(".", q5);
+    q5.addTransition("o", q6);
+    q6.addTransition("r", q7);
+    q7.addTransition("g", q8);
+    
+    L1.setNodes(std::vector<Node> {q1, q2, q3, q4, q5, q6, q7, q8});
 }
 
+void createL2() {
+    Node q1, q2, q3, q4, q5, q6, q7, q8(true);
+
+    q1.addTransition("S", q2);
+    q2.addTransition("S", q2);
+    q2.addTransition(".", q1);
+    q2.addTransition("@", q3);
+    q3.addTransition("S", q4);
+    q4.addTransition("S", q4);
+    q4.addTransition(".", q5);
+    q5.addTransition("o", q6);
+    q6.addTransition("r", q7);
+    q6.addTransition("S-r", q4);
+    q7.addTransition("g", q8);
+    q7.addTransition("S-g", q4);
+
+    L2.setNodes(std::vector<Node> {q1, q2, q3, q4, q5, q6, q7, q8});
+}
 
