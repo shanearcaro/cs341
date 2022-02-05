@@ -65,6 +65,8 @@ int main(int argc, char* argv[]) {
             else {
                 // File could not be read, must be string input
                 start(input, false);
+                L1.reset();
+                L2.reset();
             }
         }
         else if (user_input == "N" || user_input == "n") {
@@ -75,6 +77,8 @@ int main(int argc, char* argv[]) {
             std::cout << "Cannot understand input string. Terminating." << std::endl;
             return 0;
         }
+        std::cout << "Would you like to enter a string? Y or N: ";
+        getline(std::cin, user_input);
     }
     return 0;
 }
@@ -90,6 +94,7 @@ std::string start(std::string input, bool write) {
     bool test2 = L2.next(input);
 
     std::cout << input << ((test1 || test2) ? ": accepted" : ": rejected") << std::endl;
+    std::cout << std::endl;
 
     if (write)
         return input + ((test1 || test2) ? ": accepted" : ": rejected");
