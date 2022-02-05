@@ -11,16 +11,16 @@ class Transition {
         // List of strings that will allow for the next transition
         std::string accept;
 
-        // ID of node that should be transitioned to
-        Node* transitionNode;
+        Node* from;
+        Node* to;
 
     public:
-        Transition(std::string accepting, Node* tNode): accept(accepting), transitionNode(tNode) {};
+        Transition(std::string accepting, Node* fromNode, Node* toNode): accept(accepting), from(fromNode), to(toNode) {};
 
-        void transition(std::string input);
         std::string getAccept();
-        Node* getTransitionNode();
-        void setTransitionNode(Node* node);
+
+        Node* getFrom();
+        Node* getTo();
 };  
 
 #endif

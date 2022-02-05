@@ -25,8 +25,8 @@ class Node {
         Node(bool acceptState): state(acceptState), id(++generation) {};
         
         // void addTransition(std::string accept, int id);
-        void addTransition(std::string accept, Node node);
-        bool next(std::string input, Node& activeNode);
+        void addTransition(std::string accept, Node* node);
+        Node* next(std::string input);
         bool getState();
         int getID();
 };

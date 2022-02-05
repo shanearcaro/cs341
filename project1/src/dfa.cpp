@@ -4,9 +4,9 @@
 
 void DFA::setNodes(std::vector<Node> qNodes) {
     nodes = qNodes;
+    this->head = &nodes.at(0);
 
-    if (qNodes.size() > 0)
-        setActiveNode(qNodes.at(0));
+    std::cout << "Head is being created: \n\tID: " << head->getID() << std::endl;
 }
 
 std::vector<Node> DFA::getNodes() {
@@ -15,8 +15,14 @@ std::vector<Node> DFA::getNodes() {
 
 
 bool DFA::next(std::string input) {
-    // std::cout << "Node Input[" << activeNode.getID() << "]: " << input << std::endl;
-    // while (activeNode.next(input, activeNode)) {
-    // }
+    char currentCharacter;
+    for (int i = 0; i < input.length(); i++) {
+        currentCharacter = input[i];
+        std::cout << "Current Character: " << currentCharacter << std::endl;
+        Node* temp = head->next(std::string(1, currentCharacter));
+        std::cout << "Temp values: " << std::endl;
+        std::cout << "\tID: " << temp->getID() << std::endl;
+    }
+    // Once this ends the string has been read and head is in the end
     return false;
 }
