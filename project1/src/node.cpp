@@ -22,7 +22,7 @@ int Node::next(std::string input) {
                 return p_temp->getTo();
             }
         }
-        else if (p_temp->getAccept().compare("G-") == 0) {
+        else if (p_temp->getAccept().substr(0, 2).compare("G-") == 0) {
             std::string letter = p_temp->getAccept().substr(2);
             if (isalpha(input[0]) && input.compare(letter) != 0) {
                 return p_temp->getTo();
