@@ -35,7 +35,9 @@ int main(int argc, char* argv[]) {
     std::cout << "Would you like to enter a string? Y or N: ";
     getline(std::cin, user_input);
 
-    if (user_input == "Y" || user_input == "y") {
+    // Instructions say to loop back to start again
+    while (user_input != "N" || user_input != "n") {
+        if (user_input == "Y" || user_input == "y") {
         // If user enters a string read the string but if user enters a file read all input from file
         std::cout << "Enter string or file to be read: ";
         std::string input;
@@ -47,7 +49,12 @@ int main(int argc, char* argv[]) {
             // File was successfully read
             while (!file.eof()) {
                 getline(file, input);
+                // Send input to get tested by the DFAs
                 start(input);
+
+                // Reset the DFAs to start state
+                L1.reset();
+                L2.reset();
             }
             file.close();
         }
@@ -64,9 +71,12 @@ int main(int argc, char* argv[]) {
         std::cout << "Cannot understand input string. Terminating." << std::endl;
         return 0;
     }
+    }
     return 0;
 }
 
+// Start both L1 and L2 DFA tests
+// A string only needs to pass one of the tests to be accepted
 void start(std::string input) {
     std::cout << "Testing L1" << std::endl;
     bool test1 = L1.next(input);
@@ -78,6 +88,7 @@ void start(std::string input) {
     std::cout << input << ((test1 || test2) ? ": accepted" : ": rejected") << std::endl;
 }
 
+// I just don't like this code at all
 void createL1() {
     Node q1(L1.getTicket()), q2(L1.getTicket()), q3(L1.getTicket());
     Node q4(L1.getTicket()), q5(L1.getTicket()), q6(L1.getTicket());
@@ -102,6 +113,7 @@ void createL1() {
 
 }
 
+// Not amazing
 void createL2() {
     Node q1(L2.getTicket()), q2(L2.getTicket()), q3(L2.getTicket());
     Node q4(L2.getTicket()), q5(L2.getTicket()), q6(L2.getTicket());
@@ -125,6 +137,6 @@ void createL2() {
         nodes.at(i).addTransition("X", trash_node.getID());
     }
 
-    L2.setNodes(std::vector<Node> {q1, q2, q3, q4, q5, q6, q7, q8});
+    L2.setNodes(nodes);
 }
 
