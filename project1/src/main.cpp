@@ -193,7 +193,7 @@ void createL2() {
     q5.addTransition("G-o", q4.getID());
     q6.addTransition("r",   q7.getID());
     q6.addTransition("G-r", q4.getID());
-    q6.addTransition(".",   q4.getID());
+    q6.addTransition(".",   q5.getID());
     q7.addTransition("g",   q8.getID());
     q7.addTransition("G-g", q4.getID());
     q7.addTransition(".",   q5.getID());
