@@ -148,6 +148,7 @@ void createDFA() {
     q7.addTransition("g",   q8.getID());
     q7.addTransition("G-g", q4.getID());
     q7.addTransition(".",   q5.getID());
+    q8.addTransition("G",   q4.getID());
     q8.addTransition(".",   q5.getID());
 
     // Each node needs a final transition added to be able to reach the trap node (q9)
