@@ -13,20 +13,9 @@ run: $(SRC_DIR)/$(EXE).cpp
 	make
 	./$(EXE)
 
+output: $(SRC_DIR)/$(EXE).cpp
+	make
+	./$(EXE) > output.txt
+
 clean:
 	rm $(PROJ)
-
-# CC = g++ -Iinclude -Isrc
-# ARG = -std=c++17
-# LINK = main.cpp node.cpp
-# PROJ = main
-
-# all: $(PROJ).cpp
-# 	$(CC) $(ARG) $(LINK) -o $(PROJ)
-
-# run: $(PROJ).cpp
-# 	make all
-# 	./$(PROJ)
-
-# clean:
-# 	rm $(PROJ)
