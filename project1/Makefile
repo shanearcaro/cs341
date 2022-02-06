@@ -19,3 +19,4 @@ output: $(SRC_DIR)/$(EXE).cpp
 
 clean:
 	rm $(PROJ)
+	
