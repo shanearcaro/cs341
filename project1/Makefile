@@ -3,6 +3,7 @@ HEAD_DIR := include
 
 EXE:= main
 CPPFLAGS = g++ -Iinclude -std=c++17
+OUT_FILE := output.txt
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 
@@ -15,8 +16,8 @@ run: $(SRC_DIR)/$(EXE).cpp
 
 output: $(SRC_DIR)/$(EXE).cpp
 	make
-	./$(EXE) > output.txt
+	./$(EXE) > $(OUT_FILE)
 
 clean:
-	rm $(PROJ)
+	rm $(PROJ) $(OUT_FILE)
 	
