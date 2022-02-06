@@ -6,7 +6,6 @@ Instructor: Marvin Nakayama, marvin@njit.edu
 Would you like to enter a string? Y or N: y
 Enter string or file to be read: test_cases.txt
 
-Testing L1
 Start q1
 State q1: f
 State q2: o
@@ -24,30 +23,8 @@ State q6: r
 State q7: g
 State q8
 Final q8: accept
-
-Testing L2
-Start q1
-State q1: f
-State q2: o
-State q2: o
-State q2: @
-State q3: a
-State q4: b
-State q4: c
-State q4: d
-State q4: e
-State q4: f
-State q4: .
-State q5: o
-State q6: r
-State q7: g
-State q8
-Final q8: accept
-
-L1: accepted	L2: accepted
 Final Result: foo@abcdef.org is accepted
 
-Testing L1
 Start q1
 State q1: z
 State q2: @
@@ -58,23 +35,8 @@ State q6: r
 State q7: g
 State q8
 Final q8: accept
-
-Testing L2
-Start q1
-State q1: z
-State q2: @
-State q3: o
-State q4: .
-State q5: o
-State q6: r
-State q7: g
-State q8
-Final q8: accept
-
-L1: accepted	L2: accepted
 Final Result: z@o.org is accepted
 
-Testing L1
 Start q1
 State q1: b
 State q2: a
@@ -86,24 +48,8 @@ State q5: o
 State q6: r
 State q7
 Final q7: reject
-
-Testing L2
-Start q1
-State q1: b
-State q2: a
-State q2: @
-State q3: b
-State q4: a
-State q4: .
-State q5: o
-State q6: r
-State q7
-Final q7: reject
-
-L1: rejected	L2: rejected
 Final Result: ba@ba.or is rejected
 
-Testing L1
 Start q1
 State q1: e
 State q2: d
@@ -116,58 +62,8 @@ State q9: r
 State q9: g
 State q9
 Final q9: reject
-
-Testing L2
-Start q1
-State q1: e
-State q2: d
-State q2: f
-State q2: g
-State q2: @
-State q3: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-L1: rejected	L2: rejected
 Final Result: edfg@.org is rejected
 
-Testing L1
-Start q1
-State q1: w
-State q2: e
-State q2: b
-State q2: w
-State q2: e
-State q2: b
-State q2: .
-State q9: a
-State q9: b
-State q9: .
-State q9: c
-State q9: .
-State q9: o
-State q9: r
-State q9: g
-State q9: @
-State q9: c
-State q9: s
-State q9: .
-State q9: d
-State q9: e
-State q9: f
-State q9: g
-State q9: h
-State q9: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-Testing L2
 Start q1
 State q1: w
 State q2: e
@@ -199,32 +95,8 @@ State q6: r
 State q7: g
 State q8
 Final q8: accept
-
-L1: rejected	L2: accepted
 Final Result: webweb.ab.c.org@cs.defgh.org is accepted
 
-Testing L1
-Start q1
-State q1: f
-State q2: o
-State q2: o
-State q2: @
-State q3: g
-State q4: o
-State q4: o
-State q4: .
-State q5: o
-State q6: r
-State q7: g
-State q8: .
-State q9: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-Testing L2
 Start q1
 State q1: f
 State q2: o
@@ -244,30 +116,8 @@ State q9: r
 State q9: g
 State q9
 Final q9: reject
-
-L1: rejected	L2: rejected
 Final Result: foo@goo.org..org is rejected
 
-Testing L1
-Start q1
-State q1: a
-State q2: b
-State q2: q
-State q2: e
-State q2: .
-State q9: @
-State q9: b
-State q9: o
-State q9: o
-State q9: m
-State q9: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-Testing L2
 Start q1
 State q1: a
 State q2: b
@@ -285,11 +135,8 @@ State q9: r
 State q9: g
 State q9
 Final q9: reject
-
-L1: rejected	L2: rejected
 Final Result: abqe.@boom.org is rejected
 
-Testing L1
 Start q1
 State q1: e
 State q2: d
@@ -315,38 +162,8 @@ State q7: g
 State q8: a
 State q9
 Final q9: reject
-
-Testing L2
-Start q1
-State q1: e
-State q2: d
-State q2: u
-State q2: c
-State q2: @
-State q3: o
-State q4: r
-State q4: g
-State q4: a
-State q4: n
-State q4: i
-State q4: z
-State q4: a
-State q4: t
-State q4: i
-State q4: o
-State q4: n
-State q4: .
-State q5: o
-State q6: r
-State q7: g
-State q8: a
-State q9
-Final q9: reject
-
-L1: rejected	L2: rejected
 Final Result: educ@organization.orga is rejected
 
-Testing L1
 Start q1
 State q1: r
 State q2: e
@@ -368,34 +185,8 @@ State q9: r
 State q9: g
 State q9
 Final q9: reject
-
-Testing L2
-Start q1
-State q1: r
-State q2: e
-State q2: d
-State q2: b
-State q2: l
-State q2: u
-State q2: e
-State q2: @
-State q3: g
-State q4: r
-State q4: e
-State q4: e
-State q4: n
-State q4: .
-State q5: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-L1: rejected	L2: rejected
 Final Result: redblue@green..org is rejected
 
-Testing L1
 Start q1
 State q1: r
 State q2: a
@@ -409,45 +200,8 @@ State q4: r
 State q4: g
 State q4
 Final q4: reject
-
-Testing L2
-Start q1
-State q1: r
-State q2: a
-State q2: n
-State q2: d
-State q2: o
-State q2: m
-State q2: @
-State q3: o
-State q4: r
-State q4: g
-State q4
-Final q4: reject
-
-L1: rejected	L2: rejected
 Final Result: random@org is rejected
 
-Testing L1
-Start q1
-State q1: p
-State q2: o
-State q2: k
-State q2: e
-State q2: @
-State q3: a
-State q4: .
-State q5: o
-State q6: r
-State q7: g
-State q8: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-Testing L2
 Start q1
 State q1: p
 State q2: o
@@ -465,11 +219,8 @@ State q6: r
 State q7: g
 State q8
 Final q8: accept
-
-L1: rejected	L2: accepted
 Final Result: poke@a.org.org is accepted
 
-Testing L1
 Start q1
 State q1: w
 State q2: w
@@ -485,28 +236,8 @@ State q7: g
 State q8: a
 State q9
 Final q9: reject
-
-Testing L2
-Start q1
-State q1: w
-State q2: w
-State q2: w
-State q2: @
-State q3: o
-State q4: r
-State q4: g
-State q4: .
-State q5: o
-State q6: r
-State q7: g
-State q8: a
-State q9
-Final q9: reject
-
-L1: rejected	L2: rejected
 Final Result: www@org.orga is rejected
 
-Testing L1
 Start q1
 State q1: w
 State q2: w
@@ -521,49 +252,8 @@ State q5: o
 State q6: r
 State q7
 Final q7: reject
-
-Testing L2
-Start q1
-State q1: w
-State q2: w
-State q2: w
-State q2: b
-State q2: @
-State q3: o
-State q4: r
-State q4: g
-State q4: .
-State q5: o
-State q6: r
-State q7
-Final q7: reject
-
-L1: rejected	L2: rejected
 Final Result: wwwb@org.or is rejected
 
-Testing L1
-Start q1
-State q1: w
-State q2: w
-State q2: w
-State q2: .
-State q9: o
-State q9: r
-State q9: g
-State q9: @
-State q9: b
-State q9: b
-State q9: d
-State q9: e
-State q9: f
-State q9: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-Testing L2
 Start q1
 State q1: w
 State q2: w
@@ -584,11 +274,8 @@ State q6: r
 State q7: g
 State q8
 Final q8: accept
-
-L1: rejected	L2: accepted
 Final Result: www.org@bbdef.org is accepted
 
-Testing L1
 Start q1
 State q1: f
 State q2: o
@@ -605,52 +292,8 @@ State q7: g
 State q8: @
 State q9
 Final q9: reject
-
-Testing L2
-Start q1
-State q1: f
-State q2: o
-State q2: o
-State q2: d
-State q2: @
-State q3: f
-State q4: o
-State q4: r
-State q4: .
-State q5: o
-State q6: r
-State q7: g
-State q8: @
-State q9
-Final q9: reject
-
-L1: rejected	L2: rejected
 Final Result: food@for.org@ is rejected
 
-Testing L1
-Start q1
-State q1: n
-State q2: e
-State q2: t
-State q2: @
-State q3: n
-State q4: e
-State q4: t
-State q4: w
-State q4: o
-State q4: r
-State q4: k
-State q4: .
-State q5: o
-State q6: r
-State q7: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-Testing L2
 Start q1
 State q1: n
 State q2: e
@@ -672,43 +315,8 @@ State q6: r
 State q7: g
 State q8
 Final q8: accept
-
-L1: rejected	L2: accepted
 Final Result: net@network.or.org is accepted
 
-Testing L1
-Start q1
-State q1: n
-State q2: e
-State q2: t
-State q2: w
-State q2: o
-State q2: r
-State q2: k
-State q2: @
-State q3: o
-State q4: r
-State q4: g
-State q4: a
-State q4: n
-State q4: i
-State q4: z
-State q4: a
-State q4: t
-State q4: i
-State q4: o
-State q4: n
-State q4: .
-State q5: o
-State q6: r
-State q7: g
-State q8: .
-State q9: o
-State q9: r
-State q9
-Final q9: reject
-
-Testing L2
 Start q1
 State q1: n
 State q2: e
@@ -739,11 +347,8 @@ State q5: o
 State q6: r
 State q7
 Final q7: reject
-
-L1: rejected	L2: rejected
 Final Result: network@organization.org.or is rejected
 
-Testing L1
 Start q1
 State q1: @
 State q9: a
@@ -757,50 +362,8 @@ State q9: r
 State q9: g
 State q9
 Final q9: reject
-
-Testing L2
-Start q1
-State q1: @
-State q9: a
-State q9: b
-State q9: c
-State q9: d
-State q9: e
-State q9: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-L1: rejected	L2: rejected
 Final Result: @abcde.org is rejected
 
-Testing L1
-Start q1
-State q1: p
-State q2: e
-State q2: o
-State q2: p
-State q2: l
-State q2: e
-State q2: .
-State q9: d
-State q9: o
-State q9: g
-State q9: .
-State q9: c
-State q9: a
-State q9: t
-State q9: @
-State q9: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-Testing L2
 Start q1
 State q1: p
 State q2: e
@@ -823,36 +386,8 @@ State q9: r
 State q9: g
 State q9
 Final q9: reject
-
-L1: rejected	L2: rejected
 Final Result: people.dog.cat@.org is rejected
 
-Testing L1
-Start q1
-State q1: c
-State q2: a
-State q2: b
-State q2: l
-State q2: e
-State q2: .
-State q9: .
-State q9: c
-State q9: o
-State q9: r
-State q9: d
-State q9: @
-State q9: f
-State q9: o
-State q9: r
-State q9: t
-State q9: .
-State q9: o
-State q9: r
-State q9: g
-State q9
-Final q9: reject
-
-Testing L2
 Start q1
 State q1: c
 State q2: a
@@ -876,8 +411,6 @@ State q9: r
 State q9: g
 State q9
 Final q9: reject
-
-L1: rejected	L2: rejected
 Final Result: cable..cord@fort.org is rejected
 
 Would you like to enter a string? Y or N: n
