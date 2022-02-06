@@ -131,7 +131,9 @@ void start(std::string input) {
     bool test2 = L2.next(input);
 
     // Print result
-    std::cout << input << ((test1 || test2) ? ": accepted" : ": rejected") << std::endl;
+    std::cout << std::endl;
+    std::cout << "L1" << ((test1) ? ": accepted" : ": rejected") << "\tL2" << ((test2) ? ": accepted" : ": rejected") << std::endl;
+    std::cout << "Final Result: " << input << ((test1 || test2) ? " is accepted" : " is rejected") << std::endl;
     std::cout << std::endl;
 }
 
