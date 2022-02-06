@@ -1,3 +1,10 @@
+/**
+ * @brief Author
+ * Shane Arcaro sma237
+ * CS 341 Spring Semester 2022
+ * https://web.njit.edu/~marvin/cs341/projects/prog1email.pdf
+ */
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -5,13 +12,6 @@
 
 #include "../include/sets.h"
 #include "../include/dfa.h"
-
-/**
- * @brief Author
- * Shane Arcaro sma237
- * CS 341 Spring Semester 2022
- * https://web.njit.edu/~marvin/cs341/projects/prog1email.pdf
- */
 
 /** Sets required for each DFA to work */
 // Γ = set of all lowercase roman letters
