@@ -17,6 +17,7 @@ std::vector<Node> DFA::getNodes() {
 
 bool DFA::next(std::string input) {
     char currentCharacter;
+    std::cout << "Start q1" << std::endl;
     for (int i = 0; i < input.size(); i++) {
         currentCharacter = input[i];
         std::cout << "State q" << head->getID() << ": " << currentCharacter << std::endl;
@@ -25,6 +26,7 @@ bool DFA::next(std::string input) {
     }
     // Once this ends the string has been read and head is in the end
     std::cout << "State q" << head->getID() << std::endl;
+    std::cout << "Final q" << head->getID() << ": " << (head->getState() ? "accept" : "reject") << std::endl;
     return head->getState();
 }
 

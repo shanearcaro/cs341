@@ -6,11 +6,13 @@
 #include "../include/util.h"
 #include "../include/dfa.h"
 
-
 /**
- * @brief Project Instructions
+ * @brief Author
+ * Shane Arcaro sma237
+ * CS 341 Spring Semester 2022
  * https://web.njit.edu/~marvin/cs341/projects/prog1email.pdf
  */
+
 
 // State machine that handles user input
 std::string start(std::string input, bool write);
@@ -99,7 +101,6 @@ std::string start(std::string input, bool write) {
     if (write)
         return input + ((test1 || test2) ? ": accepted" : ": rejected");
     return "";
-    
 }
 
 // I just don't like this code at all
@@ -122,9 +123,7 @@ void createL1() {
     for (int i = 0; i < nodes.size(); i++) {
         nodes.at(i).addTransition("X", trash_node.getID());
     }
-
     L1.setNodes(nodes);
-
 }
 
 // Not amazing
