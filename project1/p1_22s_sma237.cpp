@@ -22,7 +22,7 @@ const int PHI_LENGTH = 1;
 // LENGTH of the SIGMA set
 const int SIGMA_LENGTH = GAMMA_LENGTH + DELTA_LENGTH + PHI_LENGTH;
 
-// Set of all lowercase roman letters (a-z)f
+// Set of all lowercase roman letters (a-z)
 std::string GAMMA[GAMMA_LENGTH] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 
 // Set of a period (.)
@@ -115,7 +115,7 @@ class Node {
         // Return the node id of the transitioned to node
         int next(std::string input) {
             // Iterate through every transition looking for an accept
-            // If a transition is never found follow the trash transition (the last transition)
+            // If a transition is never found follow the trap transition (the last transition)
             for (int i = 0; i < transitions.size() - 1; i++) {
                 Transition* p_temp = &transitions.at(i);
                 // If input is a direct match
@@ -139,11 +139,10 @@ class Node {
                 }
             }
 
-            // No transition was found: follow trash transition
-            Transition* p_trash = &transitions.back();
-            return p_trash->getTo();
+            // No transition was found: follow trap transition
+            Transition* p_trap = &transitions.back();
+            return p_trap->getTo();
         }
-
 };
 
 class DFA {
