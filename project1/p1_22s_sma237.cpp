@@ -36,7 +36,9 @@ std::string SIGMA[SIGMA_LENGTH];
 
 // Concatenate GAMMA, DELTA, and PHI iinto SIGMA
 void concat() {
-    for (int i = 0; i < GAMMA_LENGTH; i++) SIGMA[i] = GAMMA[i];
+    for (int i = 0; i < GAMMA_LENGTH; i++) {
+        SIGMA[i] = GAMMA[i];
+    }
     SIGMA[GAMMA_LENGTH] = DELTA[0];
     SIGMA[GAMMA_LENGTH + DELTA_LENGTH] = PHI[0];
 }
