@@ -278,7 +278,7 @@ int main(int argc, char* argv[]) {
             // Check if the given string is a file
             std::fstream file(input);
             if (file.is_open()) {
-                // While mroe lines can be read, start both DFAs
+                // While more lines can be read, start both DFAs
                 while (!file.eof()) {
                     getline(file, input);
                     start(input);
