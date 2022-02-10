@@ -234,7 +234,7 @@ class DFA {
 // S2 = ΔΓΓ*
 // S3 = {.org}
 
-// DFA : Responsible for analyzing strings against L = L1 U L2, where L1 = S1ΦS1S3 and L2 = S1S2*ΦS1S2*S3
+// DFA : Responsible for analyzing strings against L = S1S2*ΦS1S2*S3
 DFA dfa;
 
 // Print the required opening text
