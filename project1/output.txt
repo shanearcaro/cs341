@@ -160,8 +160,8 @@ State q5: o
 State q6: r
 State q7: g
 State q8: a
-State q9
-Final q9: reject
+State q4
+Final q4: reject
 Final Result: educ@organization.orga is rejected
 
 Start q1
@@ -234,8 +234,8 @@ State q5: o
 State q6: r
 State q7: g
 State q8: a
-State q9
-Final q9: reject
+State q4
+Final q4: reject
 Final Result: www@org.orga is rejected
 
 Start q1
