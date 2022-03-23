@@ -110,7 +110,7 @@ void printOpening() {
 }
 
 // Create the nodes and set up the required transitions for the DFA to work
-void createDFA() {
+void createPDA() {
     // Create each node
     // TODO: Create nodes here
 
