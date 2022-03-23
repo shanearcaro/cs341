@@ -21,6 +21,9 @@ void printOpening();
 // Create the nodes and set up the required transitions for the PDA to work
 void createPDA();
 
+// Analyze a given string on the PDA
+void start(std::string input);
+
 int main(int argc, char* argv[]) {
     // Concatenate the sets together
     concat();
