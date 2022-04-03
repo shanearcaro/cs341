@@ -39,7 +39,7 @@ class Node {
 
         // Given an input character determine which transition should be followed
         // Return the node id of the transitioned to node
-        int next(std::string input);
+        int next(std::string input, std::string stack, std::string &push, std::string &pop);
 
 };
 

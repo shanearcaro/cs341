@@ -15,12 +15,21 @@ void PDA::reset() {
     this->head = &nodes.at(0);
 }
 
+// Push a new symbol on top of the stack
 void PDA::push(std::string symbol) {
     this->stack.push_back(symbol);
 }
 
+// Remove the top symbol from the stack
 void PDA::pop() {
     this->stack.pop_back();
+}
+
+// Look at the symbol on top of the stack without removing it
+std::string PDA::peak() {
+    if (this->stack.size() == 0)
+        return "";
+    return this->stack.back();
 }
 
 // Get a list of every node within the PDA
@@ -49,6 +58,8 @@ int PDA::getTicket() {
 bool PDA::next(std::string input) {
     char currentCharacter;
     std::cout << "Start q1" << std::endl;
+    std::string pushStack = "";
+    std::string popStack  = "";
 
     // Loop through the entire input string and iterate the PDA transition state
     for (int i = 0; i < input.size(); i++) {
@@ -57,10 +68,23 @@ bool PDA::next(std::string input) {
         std::cout << "State q" << head->getID() << ": " << currentCharacter << std::endl;
 
         // Get the unique id of the node that should be transitioned to
-        int ticket = head->next(std::string(1, currentCharacter));
+        int ticket = head->next(std::string(1, currentCharacter), this->peak(), pushStack, popStack);
+        // std::cout << "Updated Stack Operation: " << pushStack << std::endl;
+
+        // Make sure stack is only manipulated when a push or pop operation is called
+        if (pushStack.compare("") != 0 && popStack.compare("") != 0) {
+            if (pushStack.compare(popStack) == 0) {
+                this->pop();
+            }
+            else if (pushStack.compare("") != 0 && popStack.compare("!") == 0) {
+                this->push(pushStack);
+            }
+        }
 
         // Head now becomes the transitioned node
         head = getNode(ticket);
+        pushStack = "";
+        popStack = "";
     }
 
     // Accept or reject the input string based on the PDA characteristics
@@ -69,3 +93,6 @@ bool PDA::next(std::string input) {
 
     return head->getState();
 }
+
+// Stack is not being updated properly after the next call, PDA will return
+// a proper call if it doesn't have to use the stack

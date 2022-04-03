@@ -115,17 +115,44 @@ void printOpening() {
 // Create the nodes and set up the required transitions for the DFA to work
 void createPDA() {
     // Create each node
-    // TODO: Create nodes here
+    Node q1(pda.getTicket()), q2(pda.getTicket()), q3(pda.getTicket());
+    Node q4(pda.getTicket()), q5(pda.getTicket()), q6(pda.getTicket());
+    Node q7(pda.getTicket(), true);
+
+    // Garbage node
+    Node q8(pda.getTicket());
 
     // Add transitions between the nodes
-    // TODO: Add nodes here
+    q1.addTransition("A", "!", "A", q2.getID());
+    q2.addTransition("L", "!", "L", q2.getID());
+
+    // Q2 - Q5 for float starting with a digit
+    q2.addTransition("D", "!", "!", q3.getID());
+    q3.addTransition("D", "!", "!", q3.getID());
+    q3.addTransition("P", "!", "!", q5.getID());
+
+    // Q2 - Q5 for float starting with a period
+    q2.addTransition("P", "!", "!", q4.getID());
+    q4.addTransition("D", "!", "!", q5.getID());
+
+    // Q5 transitions
+    q5.addTransition("R", "L", "!", q6.getID());
+    q5.addTransition("S", "!", "!", q2.getID());
+    q5.addTransition("A", "A", "!", q7.getID());
+    q5.addTransition("D", "!", "!", q5.getID());
+
+    // Q6 transitions
+    q6.addTransition("R", "L", "!", q6.getID());
+    q6.addTransition("S", "!", "!", q2.getID());
+    q6.addTransition("A", "A", "!", q7.getID());
+
 
     // Each node needs a final transition added to be able to reach the trap node (q9)
     // Trap node transition is only used if the DFA cannot continue properly
-    // std::vector<Node> nodes = {q1, q2, q3, q4, q5, q6, q7, q8, q9};
-    // for (int i = 0; i < nodes.size(); i++) {
-        // TODO: Add trash node
-    // }
+    std::vector<Node> nodes = {q1, q2, q3, q4, q5, q6, q7, q8};
+    for (int i = 0; i < nodes.size(); i++) {
+        nodes.at(i).addTransition("X", "!", "!", q8.getID());
+    }
     // Put the nodes into the DFA
-    // pda.setNodes(nodes);
+    pda.setNodes(nodes);
 }

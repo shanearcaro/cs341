@@ -1,0 +1,444 @@
+Project 2 for CS 341
+Section Number: 452
+Semester: Spring 2022
+Written by: Shane Arcaro, sma237
+Instructor: Marvin Nakayama, marvin@njit.edu
+Would you like to enter a string? Y or N: y
+Enter string or file to be read: ./test_cases.txt
+
+Start q1
+State q1: &
+State q2: 3
+State q3: 8
+State q3: 1
+State q3: .
+State q5: 5
+State q5: 8
+State q5: 8
+State q5: 6
+State q5: &
+State q7
+Final q7: accept
+Final Result: &381.5886& is accepted
+
+Start q1
+State q1: &
+State q2: .
+State q4: 8
+State q5: +
+State q2: 7
+State q3: .
+State q5: -
+State q2: 8
+State q3: .
+State q5: 0
+State q5: 0
+State q5: /
+State q2: 9
+State q3: 0
+State q3: .
+State q5: 7
+State q5: 6
+State q5: 5
+State q5: +
+State q2: &
+State q8
+Final q8: reject
+Final Result: &.8+7.-8.00/90.765+& is rejected
+
+Start q1
+State q1: &
+State q2: 7
+State q3: 9
+State q3: 5
+State q3: 6
+State q3: .
+State q5: +
+State q2: .
+State q4: 4
+State q5: 9
+State q5: 2
+State q5: *
+State q2: 3
+State q3: 4
+State q3: 1
+State q3: .
+State q5: 2
+State q5: /
+State q2: 0
+State q3: 6
+State q3: 0
+State q3: .
+State q5: 1
+State q5: 0
+State q5: /
+State q2: 5
+State q3: 2
+State q3: 5
+State q3: 8
+State q3: 1
+State q3: .
+State q5: 2
+State q5: 6
+State q5: 3
+State q5: -
+State q2: .
+State q4: 9
+State q5: +
+State q2: .
+State q4: 5
+State q5: 3
+State q5: /
+State q2: 7
+State q3: .
+State q5: &
+State q7
+Final q7: accept
+Final Result: &7956.+.492*341.2/060.10/52581.263-.9+.53/7.& is accepted
+
+Start q1
+State q1: &
+State q2: 3
+State q3: 8
+State q3: 2
+State q3: .
+State q5: 8
+State q5: 9
+State q5: *
+State q2: 3
+State q3: 4
+State q3: &
+State q8
+Final q8: reject
+Final Result: &382.89*34& is rejected
+
+Start q1
+State q1: &
+State q2: 4
+State q3: .
+State q5: 2
+State q5: 3
+State q5: 9
+State q5: -
+State q2: .
+State q4: *
+State q8: 7
+State q8: .
+State q8: 2
+State q8: 9
+State q8: &
+State q8
+Final q8: reject
+Final Result: &4.239-.*7.29& is rejected
+
+Start q1
+State q1: &
+State q2: 6
+State q3: .
+State q5: 8
+State q5: 8
+State q5: .
+State q8: 6
+State q8: +
+State q8: 3
+State q8: 2
+State q8: .
+State q8: 2
+State q8: 0
+State q8: 8
+State q8: &
+State q8
+Final q8: reject
+Final Result: &6.88.6+32.208& is rejected
+
+Start q1
+State q1: &
+State q2: (
+State q2: 1
+State q3: .
+State q5: 2
+State q5: +
+State q2: (
+State q2: 3
+State q3: .
+State q5: 4
+State q5: -
+State q2: .
+State q4: 9
+State q5: )
+State q6: /
+State q2: 3
+State q3: 9
+State q3: )
+State q8: .
+State q8: 3
+State q8: &
+State q8
+Final q8: reject
+Final Result: &(1.2+(3.4-.9)/39).3& is rejected
+
+Start q1
+State q1: &
+State q2: (
+State q2: .
+State q4: 3
+State q5: )
+State q6: 6
+State q8: 4
+State q8: &
+State q8
+Final q8: reject
+Final Result: &(.3)64& is rejected
+
+Start q1
+State q1: &
+State q2: (
+State q2: (
+State q2: 8
+State q3: 2
+State q3: 4
+State q3: .
+State q5: 2
+State q5: 3
+State q5: +
+State q2: (
+State q2: 9
+State q3: .
+State q5: 2
+State q5: 2
+State q5: -
+State q2: 0
+State q3: 0
+State q3: .
+State q5: 0
+State q5: )
+State q6: *
+State q2: 2
+State q3: 1
+State q3: .
+State q5: 2
+State q5: )
+State q6: )
+State q6: +
+State q2: (
+State q2: (
+State q2: .
+State q4: 2
+State q5: /
+State q2: 7
+State q3: .
+State q5: )
+State q6: )
+State q6: &
+State q7
+Final q7: accept
+Final Result: &((824.23+(9.22-00.0)*21.2))+((.2/7.))& is accepted
+
+Start q1
+State q1: &
+State q2: (
+State q2: (
+State q2: )
+State q8: )
+State q8: &
+State q8
+Final q8: reject
+Final Result: &(())& is rejected
+
+Start q1
+State q1: &
+State q2: (
+State q2: (
+State q2: 1
+State q3: 4
+State q3: .
+State q5: 2
+State q5: 5
+State q5: 2
+State q5: +
+State q2: (
+State q2: 6
+State q3: 9
+State q3: 2
+State q3: .
+State q5: 2
+State q5: 1
+State q5: 1
+State q5: *
+State q2: (
+State q2: .
+State q4: 3
+State q5: 9
+State q5: +
+State q2: 4
+State q3: 9
+State q3: 2
+State q3: .
+State q5: 1
+State q5: )
+State q6: )
+State q6: /
+State q2: 4
+State q3: 9
+State q3: .
+State q5: 2
+State q5: 3
+State q5: 5
+State q5: )
+State q6: &
+State q8
+Final q8: reject
+Final Result: &((14.252+(692.211*(.39+492.1))/49.235)& is rejected
+
+Start q1
+State q1: &
+State q2: +
+State q8: 6
+State q8: .
+State q8: 5
+State q8: &
+State q8
+Final q8: reject
+Final Result: &+6.5& is rejected
+
+Start q1
+State q1: &
+State q2: 2
+State q3: 6
+State q3: .
+State q5: 0
+State q5: *
+State q2: (
+State q2: .
+State q4: 8
+State q5: 7
+State q5: /
+State q2: (
+State q2: (
+State q2: 4
+State q3: .
+State q5: +
+State q2: .
+State q4: 2
+State q5: )
+State q6: /
+State q2: (
+State q2: 2
+State q3: 3
+State q3: .
+State q5: 5
+State q5: 3
+State q5: 1
+State q5: )
+State q6: -
+State q2: 2
+State q3: .
+State q5: 9
+State q5: )
+State q6: +
+State q2: 6
+State q3: .
+State q5: )
+State q6: /
+State q2: (
+State q2: (
+State q2: (
+State q2: 8
+State q3: 2
+State q3: 3
+State q3: .
+State q5: *
+State q2: .
+State q4: 3
+State q5: 3
+State q5: 3
+State q5: -
+State q2: 5
+State q3: 7
+State q3: .
+State q5: *
+State q2: 8
+State q3: .
+State q5: 0
+State q5: )
+State q6: /
+State q2: .
+State q4: 3
+State q5: 3
+State q5: +
+State q2: .
+State q4: 0
+State q5: )
+State q6: )
+State q6: &
+State q7
+Final q7: accept
+Final Result: &26.0*(.87/((4.+.2)/(23.531)-2.9)+6.)/(((823.*.333-57.*8.0)/.33+.0))& is accepted
+
+Start q1
+State q1: &
+State q2: .
+State q4: 0
+State q5: *
+State q2: (
+State q2: 3
+State q3: 2
+State q3: .
+State q5: 9
+State q5: 2
+State q5: 2
+State q5: +
+State q2: .
+State q4: 7
+State q5: -
+State q2: *
+State q8: 9
+State q8: .
+State q8: )
+State q8: )
+State q8: &
+State q8
+Final q8: reject
+Final Result: &.0*(32.922+.7-*9.))& is rejected
+
+Start q1
+State q1: &
+State q2: (
+State q2: 4
+State q3: .
+State q5: +
+State q2: (
+State q2: .
+State q4: 8
+State q5: -
+State q2: 9
+State q3: .
+State q5: )
+State q6: )
+State q6: /
+State q2: 2
+State q3: .
+State q5: )
+State q8: *
+State q8: 3
+State q8: .
+State q8: 4
+State q8: +
+State q8: (
+State q8: 5
+State q8: .
+State q8: 2
+State q8: 1
+State q8: /
+State q8: 3
+State q8: 4
+State q8: .
+State q8: 2
+State q8: &
+State q8
+Final q8: reject
+Final Result: &(4.+(.8-9.))/2.)*3.4+(5.21/34.2& is rejected
+
+Would you like to enter a string? Y or N: n
+
+No input string being read. Terminating.

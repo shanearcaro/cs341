@@ -24,13 +24,13 @@ class Transition {
     public:
         Transition(std::string accepting, std::string popping, std::string pushing, int from, int to): accept(accepting), pop(popping), push(pushing), from(from), to(to) {};
 
-        // Get the list of acceptable strings to transition on
+        // Get the acceptable string to transition on
         std::string getAccept();
 
-        // Get pop
+        // Get the string that should be popped off the stack
         std::string getPop();
 
-        // Get push
+        // Get the string that will be pushed on to the stack
         std::string getPush();
 
         // Get the ID of the node that initialized this transition
@@ -38,6 +38,9 @@ class Transition {
 
         // Get the ID of the node that ends this transition
         int getTo();
+
+        // Compare accept, pop, and push to see if a transition can be followed or not
+        bool compare(std::string accept, std::string push);
 };  
 
 #endif

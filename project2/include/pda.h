@@ -20,15 +20,21 @@ class PDA {
 
     public:
         PDA() {};
+        
         // Create PDA with set of initial nodes
         void setNodes(std::vector<Node> qNodes);
 
         // Reset the PDA so the head node is back in its starting state
         void reset();
 
+        // Push a new symbol on top of the stack
         void push(std::string symbol);
 
+        // Remove the top symbol from the stack
         void pop();
+
+        // Look at the symbol on top of the stack without removing it
+        std::string peak();
 
         // Get a list of every node within the PDA
         std::vector<Node> getNodes();

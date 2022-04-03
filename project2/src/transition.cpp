@@ -24,3 +24,7 @@ int Transition::getFrom() {
 int Transition::getTo() {
     return to;
 }
+
+bool Transition::compare(std::string accept, std::string push) {
+    return this->accept.compare(accept) == 0 && this->push.compare(push) == 0;
+}
