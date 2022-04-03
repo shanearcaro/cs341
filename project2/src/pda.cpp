@@ -57,7 +57,6 @@ int PDA::getTicket() {
 // Run through the PDA given input
 bool PDA::next(std::string input) {
     char currentCharacter;
-    std::cout << "Start q1" << std::endl;
     std::string pushStack = "";
     std::string popStack  = "";
 
@@ -69,7 +68,13 @@ bool PDA::next(std::string input) {
 
         // Get the unique id of the node that should be transitioned to
         int ticket = head->next(std::string(1, currentCharacter), this->peak(), pushStack, popStack);
-        // std::cout << "Updated Stack Operation: " << pushStack << std::endl;
+
+        // The string analysis crashed
+        if (ticket == -1) {
+            // Accept or reject the input string based on the PDA characteristics
+            std::cout << "Machine Crashed" << std::endl;
+            return false;
+        }
 
         // Make sure stack is only manipulated when a push or pop operation is called
         if (pushStack.compare("") != 0 && popStack.compare("") != 0) {

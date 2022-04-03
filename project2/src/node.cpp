@@ -28,8 +28,7 @@ std::vector<Transition> Node::getTransitions() {
 // Return the node id of the transitioned to node
 int Node::next(std::string input, std::string stack, std::string &push, std::string &pop) {
     // Iterate through every transition looking for an accept
-    // If a transition is never found follow the trash transition (the last transition)
-    for (int i = 0; i < transitions.size() - 1; i++) {
+    for (int i = 0; i < transitions.size(); i++) {
         Transition* p_temp = &transitions.at(i);
 
         // Transition is supposed to accept a digit
@@ -95,8 +94,6 @@ int Node::next(std::string input, std::string stack, std::string &push, std::str
             }
         }
     }
-
-    // No transition was found: follow trash transition
-    Transition* p_trash = &transitions.back();
-    return p_trash->getTo();
+    // No transition was found, crash
+    return -1;
 }
