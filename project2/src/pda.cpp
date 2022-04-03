@@ -93,6 +93,3 @@ bool PDA::next(std::string input) {
 
     return head->getState();
 }
-
-// Stack is not being updated properly after the next call, PDA will return
-// a proper call if it doesn't have to use the stack
