@@ -64,7 +64,6 @@ bool PDA::next(std::string input) {
     for (int i = 0; i < input.size(); i++) {
         // Get a single character to test
         currentCharacter = input[i];
-        std::cout << "State q" << head->getID() << ": " << currentCharacter << std::endl;
 
         // Get the unique id of the node that should be transitioned to
         int ticket = head->next(std::string(1, currentCharacter), this->peak(), pushStack, popStack);
@@ -85,6 +84,14 @@ bool PDA::next(std::string input) {
                 this->push(pushStack);
             }
         }
+
+        if (pushStack.compare("") == 0 || pushStack.compare("!") == 0)
+            pushStack = "ε";
+        if (popStack.compare("") == 0 || popStack.compare("!") == 0)
+            popStack = "ε";
+        if (popStack.compare(pushStack) == 0)
+            pushStack = "ε";
+        std::cout << "State q" << head->getID() << ": " << currentCharacter << ", " << popStack << " ➜ " << pushStack << std::endl;
 
         // Head now becomes the transitioned node
         head = getNode(ticket);
