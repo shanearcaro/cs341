@@ -12,4 +12,5 @@ The code I used to construct a DFA for Project 1 is very modular and allows for 
 ### Grades
 
 Project 1: <b> 100 </b>
-Project 2: <b> TBD </b>
+
+Project 2: <b> 98 </b> :(
